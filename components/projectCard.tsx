@@ -23,7 +23,7 @@ const ProjectCard = ({
 	url,
 	stack,
 	startedDate,
-	bgColor,
+	bgColor
 }: ProjectCardProps) => {
 	return (
 		<div
@@ -31,7 +31,7 @@ const ProjectCard = ({
 		>
 			<div
 				style={{ backgroundColor: bgColor }}
-				className={` absolute w-16 h-16 -top-10 -left-10 blur-[100px] transition-all duration-700 group-hover/card:w-2/4 group-hover/card:h-2/4  group-hover/card:blur-[300px]`}
+				className={` absolute w-16 h-16 -top-10 -left-10 blur-[100px] opacity-30 transition-all duration-700 group-hover/card:w-2/4 group-hover/card:h-2/4  group-hover/card:blur-[300px]`}
 			/>
 			<div className=" border-b border-gray-400 dark:border-gray-300 pb-2 flex flex-row justify-between">
 				<div className="text-2xl z-10">

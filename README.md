@@ -8,8 +8,8 @@ Personal website to showcase my favorite and latest public projects using techno
 
 | Tool       | Version |
 | ---------- | ------- |
-| Node       | 18      |
-| npm / pnpm | 9 / 8   |
+| Node       | 22      |
+| npm / pnpm | 10      |
 
 ## Develop
 
