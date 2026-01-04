@@ -1,8 +1,8 @@
 {
-	"name": "trtz.dev",
-	"api": "https://api.github.com/repos/btreitz/trtz.dev",
-	"github-url": "https://github.com/btreitz/trtz.dev",
-	"url": "https://trtz.dev/",
+	"name": "projects.trtz.dev",
+	"api": "https://api.github.com/repos/btreitz/projects.trtz.dev",
+	"github-url": "https://github.com/btreitz/projects.trtz.dev",
+	"url": "https://projects.trtz.dev/",
 	"stack": {
 		"Client & Server": [
 			"[Next.js 13](https://nextjs.org/)",

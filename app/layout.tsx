@@ -5,25 +5,25 @@ import { AnalyticsWrapper } from "../components/analytics";
 import Footer from "../components/footer";
 import Header from "../components/header";
 
-const WEB_URL = "https://trtz.dev";
+const WEB_URL = "https://projects.trtz.dev";
 
 export const metadata: Metadata = {
-	title: "trtz.dev - Bastian Treitz",
+	title: "projects.trtz.dev - Bastian Treitz",
 	description: "Bastian Treitz - Software Developer - Personal website about some of my public projects",
 	icons: {
 		icon: "/images/trtz.png",
 	},
-	applicationName: "trtz.dev",
+	applicationName: "projects.trtz.dev",
 	referrer: "origin-when-cross-origin",
 	keywords: ["Bastian Treitz", "Next.js", "React", "TypeScript"],
 	authors: [{ name: "Bastian Treitz", url: "https://linkedin.com/in/btreitz" }],
 	colorScheme: "dark light",
 	creator: "Bastian Treitz",
 	openGraph: {
-		title: "trtz.dev - Bastian Treitz",
+		title: "projects.trtz.dev - Bastian Treitz",
 		description: "Bastian Treitz - Software Developer - Personal website about some of my public projects",
-		url: "https://trtz.dev",
-		siteName: "trtz.dev",
+		url: "https://projects.trtz.dev",
+		siteName: "projects.trtz.dev",
 		locale: "en-US",
 		type: "website",
 		images: [

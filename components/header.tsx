@@ -2,7 +2,6 @@ import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 
 import FramerMotionDivWrapper from "./framerMotionDivWrapper";
 import IconLink from "./iconLink";
-import ThemeSwitcher from "./themeSwitcher";
 
 export default function Header() {
 	return (
@@ -18,7 +17,7 @@ export default function Header() {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ delay: 0.7 }}
 					>
-						<div className=" text-2xl">trtz.dev</div>
+						<div className=" text-2xl">projects.trtz.dev</div>
 					</FramerMotionDivWrapper>
 					<ul className="flex flex-row justify-center gap-1">
 						<li key={0}>

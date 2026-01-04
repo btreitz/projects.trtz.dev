@@ -1,6 +1,6 @@
-# trtz.dev
+# projects.trtz.dev
 
-\>\> https://trtz.dev/ <<
+\>\> https://projects.trtz.dev/ <<
 
 Personal website to showcase my favorite and latest public projects using technologies that interest me.
 
