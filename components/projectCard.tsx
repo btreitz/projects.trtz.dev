@@ -1,4 +1,5 @@
 import { GitHubIcon, GlobeIcon } from "./icons";
+import { GlowingEffect } from "./glowingEffect";
 
 type ProjectCardProps = {
 	className?: string;
@@ -27,11 +28,8 @@ const ProjectCard = ({
 		<div
 			className={`${className} group/card relative rounded-2xl p-4 pb-6 transition-all bg-zinc-900/50 backdrop-blur-sm border border-zinc-800/50 hover:border-zinc-700/50`}
 		>
-			{/* Colored glow effect on hover */}
-			<div
-				style={{ backgroundColor: bgColor }}
-				className="absolute w-16 h-16 -top-10 -left-10 blur-[100px] opacity-30 transition-all duration-700 group-hover/card:w-2/4 group-hover/card:h-2/4 group-hover/card:blur-[300px]"
-			/>
+			{/* Cursor-following glow effect */}
+			<GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} color={bgColor} />
 
 			{/* Header with name and links */}
 			<div className="border-b border-zinc-700/50 pb-2 flex flex-row justify-between">
