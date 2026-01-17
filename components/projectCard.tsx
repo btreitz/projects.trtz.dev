@@ -26,13 +26,13 @@ const ProjectCard = ({
 }: ProjectCardProps) => {
 	return (
 		<div
-			className={`${className} group/card relative rounded-2xl p-4 pb-6 transition-all bg-zinc-900/50 backdrop-blur-sm border border-zinc-800/50 hover:border-zinc-700/50`}
+			className={`${className} group/card relative rounded-2xl p-6 pb-8 transition-all bg-zinc-900/50 backdrop-blur-sm border border-zinc-800/50 hover:border-zinc-700/50`}
 		>
 			{/* Cursor-following glow effect */}
 			<GlowingEffect spread={40} glow={true} disabled={false} proximity={64} inactiveZone={0.01} color={bgColor} />
 
 			{/* Header with name and links */}
-			<div className="border-b border-zinc-700/50 pb-2 flex flex-row justify-between">
+			<div className="border-b border-zinc-700/50 pb-4 flex flex-row justify-between">
 				<div className="text-2xl z-10 text-zinc-100">
 					{name}{" "}
 					<span className="opacity-50 tablet:opacity-0 tablet:group-hover/card:opacity-50 transition-opacity duration-200 ease-in-out text-sm align-middle text-zinc-400">
@@ -67,23 +67,23 @@ const ProjectCard = ({
 				</ul>
 			</div>
 
-			{/* Content: Description and Stack */}
-			<div className="flex flex-row pt-4 gap-5">
-				<div className="flex-1 z-10">
-					{description && (
-						<div>
-							<div className="text-xl text-zinc-200">About</div>
-							<div className="text-zinc-400 mt-2">{description}</div>
-						</div>
-					)}
-				</div>
-				<div className="flex-1 z-10">
+			{/* Content: Description and Stack (stacked layout) */}
+			<div className="flex flex-col pt-6 gap-8 z-10">
+				{/* Description - full width */}
+				{description && (
 					<div>
+						<div className="text-xl text-zinc-200">About</div>
+						<div className="text-zinc-400 mt-3">{description}</div>
+					</div>
+				)}
+
+				{/* Tech Stack - grid layout for categories */}
+				<div>
+					<div className="text-xl text-zinc-200 mb-4">Tech Stack</div>
+					<div className="grid grid-cols-2 tablet:grid-cols-3 gap-x-6 gap-y-5">
 						{Object.entries(stack).map(([key, values]) => (
-							<div className="mb-3" key={key}>
-								<div className="font-bold text-lg mb-2 text-zinc-200" key={key}>
-									{key}
-								</div>
+							<div key={key}>
+								<div className="text-base text-zinc-400 mb-3">{key}</div>
 								<div className="flex flex-row flex-wrap gap-2">
 									{values.map((item) => {
 										const linkMatch = /^(\[(.*)\]\((.*)\))/g.exec(item);

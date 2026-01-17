@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface InteractiveGridBackgroundProps {
 	className?: string;
@@ -9,11 +9,23 @@ interface InteractiveGridBackgroundProps {
 /**
  * Interactive grid background with dots that scale up near the cursor.
  * Canvas-based approach for smooth 60fps animations.
+ * Falls back to static grid on touch devices.
  */
 export function InteractiveGridBackground({ className }: InteractiveGridBackgroundProps) {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const mouseRef = useRef({ x: -1000, y: -1000 });
 	const animationRef = useRef<number>(0);
+	const [hasHover, setHasHover] = useState(true);
+
+	// Detect if device supports hover (non-touch device)
+	useEffect(() => {
+		const mediaQuery = window.matchMedia("(hover: hover)");
+		setHasHover(mediaQuery.matches);
+
+		const handleChange = (e: MediaQueryListEvent) => setHasHover(e.matches);
+		mediaQuery.addEventListener("change", handleChange);
+		return () => mediaQuery.removeEventListener("change", handleChange);
+	}, []);
 
 	useEffect(() => {
 		const canvas = canvasRef.current;
@@ -55,6 +67,28 @@ export function InteractiveGridBackground({ className }: InteractiveGridBackgrou
 		// Dark mode only - white dots with low opacity
 		const DOT_COLOR = "rgba(255, 255, 255, 0.15)";
 
+		// Static draw for touch devices - just draws once
+		const drawStatic = () => {
+			const rect = canvas.getBoundingClientRect();
+			ctx.clearRect(0, 0, rect.width, rect.height);
+
+			const offsetX = -1;
+			const offsetY = -1;
+
+			for (let row = 0; row < gridRows; row++) {
+				for (let col = 0; col < gridCols; col++) {
+					const x = col * GRID_SIZE + offsetX;
+					const y = row * GRID_SIZE + offsetY;
+
+					ctx.beginPath();
+					ctx.arc(x, y, BASE_RADIUS, 0, Math.PI * 2);
+					ctx.fillStyle = DOT_COLOR;
+					ctx.fill();
+				}
+			}
+		};
+
+		// Interactive draw for hover devices
 		const draw = () => {
 			const rect = canvas.getBoundingClientRect();
 			ctx.clearRect(0, 0, rect.width, rect.height);
@@ -119,20 +153,33 @@ export function InteractiveGridBackground({ className }: InteractiveGridBackgrou
 			mouseRef.current = { x: -1000, y: -1000 };
 		};
 
-		updateCanvasSize();
-		window.addEventListener("resize", updateCanvasSize);
-		window.addEventListener("mousemove", handleMouseMove);
-		canvas.addEventListener("mouseleave", handleMouseLeave);
+		const handleResize = () => {
+			updateCanvasSize();
+			if (!hasHover) {
+				drawStatic();
+			}
+		};
 
-		draw();
+		updateCanvasSize();
+		window.addEventListener("resize", handleResize);
+
+		if (hasHover) {
+			// Interactive mode for devices with hover capability
+			window.addEventListener("mousemove", handleMouseMove);
+			canvas.addEventListener("mouseleave", handleMouseLeave);
+			draw();
+		} else {
+			// Static mode for touch devices
+			drawStatic();
+		}
 
 		return () => {
-			window.removeEventListener("resize", updateCanvasSize);
+			window.removeEventListener("resize", handleResize);
 			window.removeEventListener("mousemove", handleMouseMove);
 			canvas.removeEventListener("mouseleave", handleMouseLeave);
 			cancelAnimationFrame(animationRef.current);
 		};
-	}, []);
+	}, [hasHover]);
 
 	return (
 		<canvas

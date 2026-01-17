@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useCallback, useEffect, useRef } from "react";
+import { memo, useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "../lib/utils";
 import { animate } from "motion/react";
 
@@ -35,6 +35,17 @@ const GlowingEffect = memo(
 		const containerRef = useRef<HTMLDivElement>(null);
 		const lastPosition = useRef({ x: 0, y: 0 });
 		const animationFrameRef = useRef<number>(0);
+		const [hasHover, setHasHover] = useState(true);
+
+		// Detect if device supports hover (non-touch device)
+		useEffect(() => {
+			const mediaQuery = window.matchMedia("(hover: hover)");
+			setHasHover(mediaQuery.matches);
+
+			const handleChange = (e: MediaQueryListEvent) => setHasHover(e.matches);
+			mediaQuery.addEventListener("change", handleChange);
+			return () => mediaQuery.removeEventListener("change", handleChange);
+		}, []);
 
 		const handleMove = useCallback(
 			(e?: MouseEvent | { x: number; y: number }) => {
@@ -96,6 +107,19 @@ const GlowingEffect = memo(
 		useEffect(() => {
 			if (disabled) return;
 
+			const element = containerRef.current;
+
+			// On touch devices, show a subtle static glow around the entire border
+			if (!hasHover) {
+				if (element) {
+					element.style.setProperty("--active", "0.5");
+					element.style.setProperty("--start", "0");
+					element.style.setProperty("--spread", "180"); // Full border glow
+				}
+				return;
+			}
+
+			// Interactive mode for devices with hover capability
 			const handleScroll = () => handleMove();
 			const handlePointerMove = (e: PointerEvent) => handleMove(e);
 
@@ -111,7 +135,7 @@ const GlowingEffect = memo(
 				window.removeEventListener("scroll", handleScroll);
 				document.body.removeEventListener("pointermove", handlePointerMove);
 			};
-		}, [handleMove, disabled]);
+		}, [handleMove, disabled, hasHover]);
 
 		return (
 			<>

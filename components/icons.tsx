@@ -1,3 +1,23 @@
+export function FileTextIcon({ className }: { className?: string }) {
+	return (
+		<svg
+			className={className}
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+			<polyline points="14 2 14 8 20 8" />
+			<line x1="16" y1="13" x2="8" y2="13" />
+			<line x1="16" y1="17" x2="8" y2="17" />
+			<line x1="10" y1="9" x2="8" y2="9" />
+		</svg>
+	);
+}
+
 export function ExternalLinkIcon({ className }: { className?: string }) {
 	return (
 		<svg
@@ -46,6 +66,41 @@ export function GlobeIcon({ className }: { className?: string }) {
 			<circle cx="12" cy="12" r="10" />
 			<line x1="2" y1="12" x2="22" y2="12" />
 			<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+		</svg>
+	);
+}
+
+export function MenuIcon({ className }: { className?: string }) {
+	return (
+		<svg
+			className={className}
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<line x1="4" y1="6" x2="20" y2="6" />
+			<line x1="4" y1="12" x2="20" y2="12" />
+			<line x1="4" y1="18" x2="20" y2="18" />
+		</svg>
+	);
+}
+
+export function CloseIcon({ className }: { className?: string }) {
+	return (
+		<svg
+			className={className}
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<line x1="18" y1="6" x2="6" y2="18" />
+			<line x1="6" y1="6" x2="18" y2="18" />
 		</svg>
 	);
 }
