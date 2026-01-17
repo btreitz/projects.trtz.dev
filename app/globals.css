@@ -17,3 +17,9 @@ a {
 * {
 	box-sizing: border-box;
 }
+
+/* Fade out the grid at the edges for a softer look (vignette effect) */
+.bg-grid-fade {
+	mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+	-webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+}

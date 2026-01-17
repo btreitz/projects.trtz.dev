@@ -41,7 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang="en">
 			<body className="bg-zinc-950 text-zinc-100 min-h-screen">
-				<InteractiveGridBackground />
+				<InteractiveGridBackground className="bg-grid-fade" />
 				<Header />
 				<div className="flex flex-col items-center pt-16 pb-16 min-h-screen">
 					<div className="flex flex-col flex-grow justify-start gap-7 max-w-3xl w-full px-4">
