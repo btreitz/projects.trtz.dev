@@ -10,7 +10,7 @@
 			"[TypeScript](https://www.typescriptlang.org/)",
 			"[Tailwind CSS](https://tailwindcss.com/)"
 		],
-		"Deployment & Hosting": ["[Vercel](https://vercel.com/)"]
+		"Deployment & Hosting": ["Self-hosted", "[Coolify](https://coolify.io/)"]
 	},
 	"startedDate": "2022",
 	"bgColor": "#49a417"

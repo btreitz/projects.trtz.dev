@@ -2,7 +2,7 @@
 	"name": "Chat AI Portfolio",
 	"api": "https://api.github.com/repos/btreitz/nextjs-ai-rag-portfolio",
 	"github-url": "https://github.com/btreitz/nextjs-ai-rag-portfolio",
-	"url": "https://trtz.dev/",
+	"url": "https://chat.trtz.dev/",
 	"stack": {
 		"Client & Server": [
 			"[Next.js 16](https://nextjs.org/)",
@@ -22,7 +22,7 @@
 			"[Drizzle ORM](https://orm.drizzle.team/)"
 		],
 		"Observability": ["[LangFuse](https://langfuse.com/)"],
-		"Deployment & Hosting": ["[Vercel](https://vercel.com/)"]
+		"Deployment & Hosting": ["Self-hosted", "[Coolify](https://coolify.io/)"]
 	},
 	"startedDate": "2026",
 	"bgColor": "#6366f1"

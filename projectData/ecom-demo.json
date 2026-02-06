@@ -2,7 +2,7 @@
 	"name": "Ecom Demo",
 	"api": "https://api.github.com/repos/btreitz/nextjs-shopify-ecom-demo",
 	"github-url": "https://github.com/btreitz/nextjs-shopify-ecom-demo",
-	"url": "https://ecom-demo-nine.vercel.app/",
+	"url": "https://ecom-demo.trtz.dev/",
 	"stack": {
 		"Client & Server": [
 			"[Next.js 14](https://nextjs.org/)",
@@ -13,7 +13,7 @@
 			"[Tailwind CSS](https://tailwindcss.com/)"
 		],
 		"Image Generation": ["[Midjourney](https://www.midjourney.com/home)"],
-		"Deployment & Hosting": ["[Vercel](https://vercel.com/)"]
+		"Deployment & Hosting": ["Self-hosted", "[Coolify](https://coolify.io/)"]
 	},
 	"startedDate": "2023",
 	"bgColor": "#7217A4"

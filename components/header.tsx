@@ -45,7 +45,7 @@ export default function Header() {
 					</a>
 
 					<a
-						href="https://trtz.dev"
+						href="https://chat.trtz.dev"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="flex items-center gap-1.5 text-sm text-zinc-400 hover:text-zinc-200 transition-colors"
@@ -109,7 +109,7 @@ export default function Header() {
 							</a>
 
 							<a
-								href="https://trtz.dev"
+								href="https://chat.trtz.dev"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="flex items-center gap-3 text-sm text-zinc-400 hover:text-zinc-200 transition-colors py-2"
