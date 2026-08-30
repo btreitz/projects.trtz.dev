@@ -2,7 +2,7 @@
 	"name": "Investment Journey Calculator",
 	"api": "https://api.github.com/repos/btreitz/investment-journey-calculator",
 	"github-url": "https://github.com/btreitz/investment-journey-calculator",
-	"url": "https://investmentjourneycalc.com/",
+	"url": "https://investmentjourney.trtz.dev/",
 	"stack": {
 		"Backend": [
 			"Java 17",
